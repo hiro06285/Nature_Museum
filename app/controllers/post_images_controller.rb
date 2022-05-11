@@ -29,4 +29,10 @@ class PostImagesController < ApplicationController
   def post_image_params
     params.require(:post_image).permit(:image, :body)
   end
+
+  private
+
+  def post_image_params
+    params.require(:post_image).permit(:image, :name, :body)
+  end
 end

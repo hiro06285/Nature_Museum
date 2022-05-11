@@ -3,6 +3,8 @@
     <div class="col-md-8">
       <h3>投稿詳細</h3>
       <%= attachment_image_tag @post_image, :image %>
+      <h6>タイトル</h6>
+      <%= @post_image.name %>
       <h6>説明</h6>
       <%= @post_image.body %>
       <h6>ユーザーネーム</h6>

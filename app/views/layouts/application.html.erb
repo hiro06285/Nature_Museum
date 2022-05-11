@@ -10,22 +10,29 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to '画像投稿フォーム', new_post_image_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <%= link_to "NatureMuseum", root_path, class: "text-dark" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              ようこそ、<%= current_user.name %>さん！
+                <%= link_to '画像投稿フォーム', new_post_image_path, class: "btn btn-outline-dark" %>
+                <%= link_to '投稿一覧', post_images_path, class: "btn btn-outline-dark" %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
+              <% else %>
+                <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-dark" %>
+                <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-dark" %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

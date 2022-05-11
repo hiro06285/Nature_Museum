@@ -4,6 +4,7 @@ class CreatePostImages < ActiveRecord::Migration[5.2]
 
       t.string :user_id
       t.string :image_id
+      t.string :name
       t.text   :hashbody
       t.text   :body
 
