@@ -16,18 +16,13 @@ class PostImagesController < ApplicationController
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_image_comment = PostImageComment.new
   end
 
   def destroy
     @post_image = PostImage.find(params[:id])
     @post_image.destroy
     redirect_to post_images_path
-  end
-
-  private
-
-  def post_image_params
-    params.require(:post_image).permit(:image, :body)
   end
 
   private
