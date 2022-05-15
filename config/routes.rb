@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_image_comments, only: [:create, :destroy]
   end
+  resources :genres, only: [:index, :create, :edit, :update]
 end
