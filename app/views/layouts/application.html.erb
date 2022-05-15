@@ -21,6 +21,10 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               ようこそ、<%= current_user.name %>さん！
+                <%= search_form_for @search, url: genres_path do |f| %>
+                  <%= f.text_field :name_cont, placeholder: '名前を入力...' %>
+                  <%= f.submit ("検索する") %>
+                <% end %>
                 <%= link_to '画像投稿フォーム', new_post_image_path, class: "btn btn-outline-dark" %>
                 <%= link_to '投稿一覧', post_images_path, class: "btn btn-outline-dark" %>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>

@@ -1,3 +1,8 @@
+<% if @search_genres %>
+  <% render partial: 'genres/genre', collection: @search_genres %>
+<% else %>
+  <% render partial: 'genres/genre', collection: @genres %>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1">
@@ -15,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @genres.each do |genre| %>
+          <% (@search_genres.presence || @genres).each do |genre| %>
           <tr>
             <td><%= genre.name %></td>
             <td><%= link_to "編集する", edit_genre_path(genre.id), class: "btn btn-success" %></td>
