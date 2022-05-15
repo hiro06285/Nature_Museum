@@ -21,5 +21,6 @@
         <%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image.id) %>
       </div>
     <% end %>
+    <%= paginate @post_image %>
   </div>
 </div>
