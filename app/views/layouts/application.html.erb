@@ -22,7 +22,7 @@
               <% if user_signed_in? %>
               ようこそ、<%= current_user.name %>さん！
                 <%= search_form_for @search, url: genres_path do |f| %>
-                  <%= f.text_field :name_cont, placeholder: '名前を入力...' %>
+                  <%= f.text_field :name_cont, placeholder: 'ジャンルを入力...' %>
                   <%= f.submit ("検索する") %>
                 <% end %>
                 <%= link_to '画像投稿フォーム', new_post_image_path, class: "btn btn-outline-dark" %>
