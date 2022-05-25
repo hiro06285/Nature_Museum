@@ -4,6 +4,7 @@ class PostImagesController < ApplicationController
   end
 
   def create
+    #byebug
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
     @post_image.save
@@ -29,6 +30,6 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
-    params.require(:post_image).permit(:image, :name, :body)
+    params.require(:post_image).permit(:image, :name, :body, :address, :latitude, :longitude)
   end
 end

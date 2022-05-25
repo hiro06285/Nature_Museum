@@ -5,6 +5,8 @@
       <%= form_with model: @post_image, local:true do |f| %>
 　      <h5>画像</h5>
 　      <%= f.attachment_field :image %>
+　      <h5>場所</h5>
+        <%= f.text_field :address, class: 'form-control' %>
 　      <h5>タイトル</h5>
 　      <%= f.text_field :name, placeholder: "タイトル" %>
         <h5>説明文</h5>
