@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3><%= @user.name %>さんの会員詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <table>
+        <tr>
+          <th>氏名</th><td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>プロフィール画像</th><td><%= @user.profile_image %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th><td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <th>住所</th><td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th><td><%= @user.telephone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th><td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "編集する", edit_user_path, class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
