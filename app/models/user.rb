@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  attachment :profile_images
+
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end

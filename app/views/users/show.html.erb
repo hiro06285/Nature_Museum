@@ -11,7 +11,7 @@
           <th>氏名</th><td><%= @user.name %></td>
         </tr>
         <tr>
-          <th>プロフィール画像</th><td><%= @user.profile_image %></td>
+          <th>プロフィール画像</th><td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "noimage.jpg"%></td>
         </tr>
         <tr>
           <th>自己紹介</th><td><%= @user.introduction %></td>

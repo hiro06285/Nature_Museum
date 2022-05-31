@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h3><%= @user.name %>さんの会員情報編集</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @user, url: user_path, local:true do |f| %>
+        <h6>氏名</h6>
+        <%= f.text_field :name %>
+        <h6>プロフィール画像</h6>
+        <%= f.attachment_field :profile_images, placeholder: "プロフィール画像" %>
+        <h6>自己紹介</h6>
+        <%= f.text_area :introduction %>
+        <h6>住所</h6>
+        <%= f.text_field :address %>
+        <h6>電話番号</h6>
+        <%= f.telephone_field :telephone_number %>
+        <h6>メールアドレス</h6>
+        <%= f.email_field :email %><br>
+        <%= f.submit '変更を保存', class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
