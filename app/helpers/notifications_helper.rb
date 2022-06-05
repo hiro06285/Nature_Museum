@@ -13,6 +13,6 @@ module NotificationsHelper
       when "comment" then
         @comment = Comment.find_by(id: @visiter_comment)&.content
         tag.a(@visiter.name, href:users_user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:users_item_path(notification.item_id), style:"font-weight: bold;")+"にコメントしました"
-      end
+    end
   end
 end

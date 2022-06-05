@@ -26,7 +26,11 @@
           <th>メールアドレス</th><td><%= @user.email %></td>
         </tr>
         <tr>
-          <td><%= link_to "編集する", edit_user_path, class: "btn btn-success" %></td>
+          <td>
+            <% if @user.id == current_user.id %>
+              <%= link_to "編集する", edit_user_path, class: "btn btn-success" %>
+            <% end %>
+          </td>
         </tr>
       </table>
     </div>
