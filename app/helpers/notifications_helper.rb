@@ -10,8 +10,8 @@ module NotificationsHelper
       when "like" then
         tag.a(notification.visiter.name, href: user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href: post_image_path(notification.post_image_id), style:"font-weight: bold;")+"にいいねしました"
       when "comment" then
-        @comment = Comment.find_by(id: @visiter_comment)&.content
-        tag.a(@visiter.name, href: users_user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href: post_image_path(notification.post_image_comment_id), style:"font-weight: bold;")+"にコメントしました"
+        @comment = PostImageComment.find_by(id: @visiter_comment)&.post_image_comment
+        tag.a(@visiter.name, href: user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href: post_image_path(notification.post_image_comment_id), style:"font-weight: bold;")+"にコメントしました"
     end
   end
 end
