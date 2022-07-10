@@ -4,8 +4,12 @@ class PostImagesController < ApplicationController
   end
 
   def create
-    #byebug
+    results = Geocoder.search(params[:post_image][:address])
+    latitude = results.first.coordinates[0]
+    longitude = results.first.coordinates[1]
     @post_image = PostImage.new(post_image_params)
+    @post_image.latitude = latitude
+    @post_image.longitude = longitude
     @post_image.user_id = current_user.id
     @post_image.save
     redirect_to post_image_path(@post_image)

@@ -19,16 +19,15 @@
         }
       </style>
       <script>
-        let map
-        
         function initMap(){
+          let map
           geocoder = new google.maps.Geocoder()
-          
+
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: <%= @post_image.latitude %>, lng: <%= @post_image.longitude %> },
             zoom: 12
           });
-          
+
           marker = new google.maps.Marker({
             position:  {lat: <%= @post_image.latitude %>, lng:<%= @post_image.longitude %>},
             map: map
