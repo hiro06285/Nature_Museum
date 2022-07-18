@@ -11,6 +11,9 @@
           <th>氏名</th><td><%= @user.name %></td>
         </tr>
         <tr>
+          <th></th><td><%= render 'relationships/follow.list', user: @user %></td>
+        </tr>
+        <tr>
           <th>プロフィール画像</th><td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "noimage.jpg"%></td>
         </tr>
         <tr>
