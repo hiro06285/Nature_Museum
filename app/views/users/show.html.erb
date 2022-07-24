@@ -29,11 +29,15 @@
           <th>メールアドレス</th><td><%= @user.email %></td>
         </tr>
         <tr>
-            <%= link_to post_image_path(@post_image.ids), data: {"turbolinks" => false} do %>
-              <%= attachment_image_tag @post_image, :image %>
+          <th></th>
+          <td>
+            <%= form_with model: @post_image, url: post_images_path(@post_image), local:true do |f| %>
+              <%= link_to post_image_path(@post_image.ids), data: {"turbolinks" => false} do %>
+                <%= attachment_image_tag @post_image, :image %>
+              <% end %>
             <% end %>
-            <h6>タイトル</h6>
-            <%= post_image.name %>
+          </td>
+          <th>タイトル</th><td><%= post_image.name %></td>
           <%= paginate @post_image %>
         </tr>
         <tr>
