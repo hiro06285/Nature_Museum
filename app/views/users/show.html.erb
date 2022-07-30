@@ -29,18 +29,6 @@
           <th>メールアドレス</th><td><%= @user.email %></td>
         </tr>
         <tr>
-          <th></th>
-          <td>
-            <%= form_with model: @post_image, url: post_images_path(@post_image), local:true do |f| %>
-              <%= link_to post_image_path(@post_image.ids), data: {"turbolinks" => false} do %>
-                <%= attachment_image_tag @post_image, :image %>
-              <% end %>
-            <% end %>
-          </td>
-          <th>タイトル</th><td><%= post_image.name %></td>
-          <%= paginate @post_image %>
-        </tr>
-        <tr>
           <td>
             <% if @user.id == current_user.id %>
               <%= link_to "編集する", edit_user_path, class: "btn btn-success" %>
@@ -48,6 +36,25 @@
             <% end %>
           </td>
         </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h5>投稿一覧</h5>
+      <table>
+        <tr>
+          <th>画像</th>
+          <td>
+            <%= link_to post_image_path(@post_image.ids), data: {"turbolinks" => false} do %>
+              <%= attachment_image_tag @post_image, :image %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>タイトル</th><td><%= @post_image.name %></td>
+        </tr>
+        <%= paginate @post_image %>
       </table>
     </div>
   </div>
