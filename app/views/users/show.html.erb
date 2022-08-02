@@ -46,7 +46,7 @@
         <tr>
           <th>画像</th>
           <td>
-            <%= link_to post_image_path(@post_image.ids), data: {"turbolinks" => false} do %>
+            <%= link_to post_image_path(@post_image.id), data: {"turbolinks" => false} do %>
               <%= attachment_image_tag @post_image, :image %>
             <% end %>
           </td>
@@ -54,7 +54,6 @@
         <tr>
           <th>タイトル</th><td><%= @post_image.name %></td>
         </tr>
-        <%= paginate @post_image %>
       </table>
     </div>
   </div>
