@@ -8,7 +8,7 @@ class PostImageCommentsController < ApplicationController
       comment_image.create_notification_comment!(current_user, post_image_comment.id)
       redirect_to post_image_path(post_image)
     else
-      redirect_to post_image_path(post_image)
+      render 'post_images/show'
     end
   end
 
